@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({ 
-  origin: 'https://bondfuture2030.com', // Replace with your frontend domain
+  origin: '*', // Replace with your frontend domain
   methods: ['GET', 'POST'],
   credentials: true
 }));
