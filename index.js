@@ -35,6 +35,7 @@ app.get('/', (req, res) => {
 // Route to handle form submission
 app.post('/subscribe', (req, res) => {
   const userEmail = req.body.email;
+  const source = req.body;
 
   if (!userEmail) {
     return res.status(400).json({ message: 'Email is required.' });
@@ -43,7 +44,7 @@ app.post('/subscribe', (req, res) => {
   const mailOptions = {
     from: 'bondnewsletteronline@gmail.com', // Sender address
     to: 'bondnewsletteronline@gmail.com',   // Receiver address
-    subject: 'New Subscription from Bond Future Landing Page',
+    subject: `New Subscription from ${source}`,
     text: `${userEmail} has subscribed to receive updates.`, // Email content
   };
 
