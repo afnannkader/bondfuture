@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 // Route to handle form submission
 app.post('/subscribe', (req, res) => {
   const userEmail = req.body.email;
-  const source = req.body;
+  const source = req.body.source;
 
   if (!userEmail) {
     return res.status(400).json({ message: 'Email is required.' });
