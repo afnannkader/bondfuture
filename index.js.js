@@ -8,7 +8,7 @@ const app = express();
 const port = 3000;
 
 app.use(cors({
-  origin: '*', // Allow requests from any origin
+  origin: 'http://127.0.0.1:5500', // Allow requests from any origin
   methods: ['GET', 'POST', 'OPTIONS'], // Specify the HTTP methods to allow
   allowedHeaders: ['Content-Type'], // Specify the headers allowed in CORS requests
   credentials: false // Set to 'false' if you do not need to send cookies or credentials
