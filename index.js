@@ -28,6 +28,10 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+
+app.get('/', (req, res) => {
+  res.send('Welcome to Bond Future API!');
+});
 // Route to handle form submission
 app.post('/subscribe', (req, res) => {
   const userEmail = req.body.email;
