@@ -7,12 +7,19 @@ const cors = require('cors')
 const app = express();
 const port = 3000;
 
-app.use(cors());
+app.use(cors({
+  origin: '*', // Allow requests from any origin
+  methods: ['GET', 'POST', 'OPTIONS'], // Specify the HTTP methods to allow
+  allowedHeaders: ['Content-Type'], // Specify the headers allowed in CORS requests
+  credentials: false // Set to 'false' if you do not need to send cookies or credentials
+}));
 // Middleware to parse JSON data
 app.use(bodyParser.json()); // Use json() to parse JSON data
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
+app.options('/subscribe', cors()); // Allow CORS preflight for this route
+
 
 // Set up Nodemailer transporter
 const transporter = nodemailer.createTransport({
